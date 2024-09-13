@@ -1,0 +1,419 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    background-color: #333;
+    height: 100%;
+  }
+  
+  /* Ensure wrapper takes full height */
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* The main content area */
+  .content-area {
+    flex: 1;
+    padding-top: 60px; /* Space for the top-bar */
+  }
+  
+  /* Base styles for the header */
+  header {
+    background: #333;
+    color: white;
+    border-bottom: 3px solid #f8d800;
+    position: relative; /* Ensure proper stacking */
+  }
+  
+  /* Styles for top-bar */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    background: #222;
+    padding: 5px 20px;
+    position: fixed; /* Fixed to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* Above header-content */
+    transition: transform 0.3s; /* Smooth transition for hiding */
+    box-sizing: border-box; /* Include padding in width calculation */
+  }
+  
+  .contact-info span {
+    margin-right: 15px;
+  }
+  
+  .auth-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    margin-left: 10px;
+  }
+  
+  .auth-links a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #f8d800;
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+  
+  
+  /* Styles for header-content */
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #333;
+    padding: 10px 20px;
+    border-bottom: 3px solid #f8d800;
+    z-index: 50; /* Below top-bar initially  */
+    transition: top 0.3s;
+  } 
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .website-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f8d800;
+  }
+  
+  nav {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #f8d800;
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+  
+  nav a:hover {
+    background: #f8d800;
+    color: #333;
+    border-radius: 5px;
+  }
+  
+  nav i {
+    display: none;
+    font-size: 24px;
+    color: #f8d800;
+    cursor: pointer;
+  }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .top-bar {
+      flex-direction: row; /* Stack contact-info and auth-links horizontally */
+      padding: 10px 10px; /* Adjust padding */
+    }
+  
+    .contact-info {
+      margin-right: auto; /* Push auth-links to the right */
+    }
+  
+    .auth-links {
+      margin-left: auto; /* Keep auth-links on the right */
+    }
+  
+    .contact-info span {
+      display: block;
+      margin: 5px 0; /* Space between contact-info items */
+    }
+  
+    .auth-links a {
+      margin-left: 10px;
+      font-size: 14px; /* Smaller font size for smaller screens */
+    }
+  
+    .header-content {
+      flex-direction: column; /* Stack logo and nav vertically */
+      align-items: flex-start; /* Align items to the start */
+      padding: 10px; /* Adjust padding for smaller screens */
+      border-bottom: none; /* Remove bottom border for a cleaner look */
+    }
+  
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px; /* Space between logo and nav */
+    }
+  
+    .logo img {
+      height: 40px; /* Adjust logo size for smaller screens */
+      margin-right: 10px;
+    }
+  
+    .website-name {
+      font-size: 18px; /* Smaller font size for the website name */
+    }
+  
+    #menu-toggle {
+      display: block;
+      font-size: 28px; /* Increase icon size for better visibility */
+      color: #f8d800;
+      cursor: pointer;
+      margin-left: auto; /* Align to the end */
+      z-index: 1001; /* Ensure it is above other content */
+    }
+  
+    #navbar {
+      display: none; /* Initially hide navbar */
+      flex-direction: column;
+      align-items: flex-start;
+      position: fixed; /* Fixed positioning for overlay effect */
+      top: 0; /* Align to the top */
+      left: 0; /* Stretch across the screen */
+      width: 100%; /* Full width of the screen */
+      background: #f8d800; /* Yellow background */
+      padding: 15px;
+      border-radius: 0; /* Remove border radius to fit edge-to-edge */
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 1000; /* Ensure navbar is above other content */
+      overflow-y: auto; /* Allow scrolling if content overflows */
+      transition: transform 0.3s ease; /* Smooth transition for visibility */
+    }
+  
+    #menu-close {
+      display: block;
+      font-size: 28px; /* Increase icon size for better visibility */
+      color: #333; /* Adjust color if needed */
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+  
+    #navbar a {
+      color: #333; /* Adjust color as needed */
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      width: 100%; /* Ensure links span the width of the navbar */
+    }
+  
+    #navbar a:hover {
+      background: #333;
+      color: #f8d800; /* Adjust color if needed */
+      border-radius: 5px;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    #menu-toggle, #menu-close {
+      display: none;
+    }
+  }
+
+/* Hero Image Section */
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    background: url('images/2.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.hero-text {
+    position: absolute;
+    top: 80%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    color: #f8d800; /* Contrast color for text */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+/* Responsive Hero Image and Text */
+
+/* For screens 768px and smaller */
+@media (max-width: 768px) {
+  .hero-image {
+      height: 60vh; /* Adjust height for smaller screens */
+      background-position: center top; /* Adjust background position */
+  }
+
+  .hero-text {
+      top: 70%; /* Adjust position for smaller screens */
+      left: 50%; /* Center horizontally */
+      transform: translate(-50%, -50%); /* Center the text */
+      padding: 15px; /* Adjust padding */
+      text-align: center; /* Center align text */
+      width: 90%; /* Ensure it fits within screen width */
+  }
+
+  .hero-text h1 {
+      font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+}
+
+/* For screens 480px and smaller */
+@media (max-width: 480px) {
+  .hero-image {
+      height: 50vh; /* Further adjust height for very small screens */
+  }
+
+  .hero-text {
+      top: 60%; /* Further adjust position */
+      left: 50%; /* Center horizontally */
+      width: 95%; /* Ensure it fits within screen width */
+  }
+
+  .hero-text h1 {
+      font-size: 1.5rem; /* Further adjust font size */
+  }
+}
+
+
+
+
+  
+/* Footer */
+   
+footer {
+    background-color: #282c34; 
+    color: #f7f7f7;    
+}
+.footer-container{
+  width: 1380px;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.col-3{width: 25%; float: left;}
+.col-6{width: 25%; float: left;}
+.col-7{width: 25%; float: right;}
+.clearfix{clear: both;}
+.container-fluid{
+  padding: 25px 0;
+  font-size: 15px;
+  border-top: 1px solid rgb(256, 256, 256, .1);
+}
+.col-3 .logo{
+  color: #ffc107;
+}
+
+.col-3 .image{
+  width: 40%;
+}
+
+h5{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+}
+.me-3{margin-right: 1rem!important;}
+footer .btn.btn-link{
+  display: block;
+  text-decoration: none;
+  margin-bottom: 5px;
+  padding: 0;
+  text-align: left;
+  font-family: system-ui!important;
+  line-height: 28px;
+  color: rgb(255, 255, 255, 0.5);
+  font-weight: normal;
+  text-transform: capitalize;
+  transition: .3s;
+}
+footer .btn.btn-link::before{
+  position: relative;
+  content: "\f105";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: rgb(255, 255, 255, 0.5);
+  margin-right: 10px;
+} 
+footer .btn.btn-link:hover{
+  color: #fff;
+  letter-spacing: 1px;
+  box-shadow: none;
+}
+
+.payment-icons img {
+  max-width: 40px; /* Slightly larger icons */
+  margin-right: 15px;
+  filter: grayscale(100%); /* Greyscale filter for icons */
+  transition: filter 0.3s, transform 0.3s;
+  filter: none; /* Remove grayscale on hover */
+  transform: scale(1.0); /* Slight zoom effect */
+}
+
+.col-7 {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.col-7 h5 {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-size: 16px;
+}
+
+.col-7 .social-icons {
+  margin-left: 15px; /* Adjusts space between "Follow Us" and the icons */
+}
+
+.col-7 .social-icons a {
+  display: inline-block;
+  margin-right: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffc107; /* Yellow color hover effect for social icons */
+  transform: scale(1.2); /* Slight zoom effect */
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .footer-container {
+      width: 100%; /* Full width for smaller screens */
+      padding: 15px; /* Adjust padding */
+  }
+
+  .col-3, .col-6, .col-7 {
+      width: 100%; /* Full width for columns on smaller screens */
+      float: none; /* Remove float */
+      margin-bottom: 20px; /* Space between rows */
+  }
+
+  .col-7 {
+      display: block; /* Stack social icons vertically */
+      text-align: center; /* Center align text and icons */
+  }
+
+  .col-7 .social-icons {
+      margin-left: 0; /* Remove left margin */
+      text-align: center; /* Center align icons */
+  }
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Tour & Travels</title>
+    <meta name="title" content="Vision Tour & Travels">
+    <link rel="shortcut icon" href="images/logo.png" type="image/png+xml">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="package_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="content-area">
+ <!-- HEADER -->
+
+ <header>
+    <div class="top-bar">
+        <div class="contact-info">
+            <span>+91-6317961705</span>
+            <span>visionbk@gmail.com</span>
+        </div>
+        <div class="auth-links">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </div>
+    <div class="header-content">
+        <div class="logo">
+            <img src="images/logo.png" alt="Vision Tours Logo">
+            <span class="website-name">Vision Tour and Travels Private Limited</span>
+        </div>
+        <i class="fa-solid fa-bars" id="menu-toggle"></i>
+        <nav id="navbar">
+            <i class="fa-solid fa-xmark" id="menu-close"></i>
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="destination.html">DESTINATIONS</a>
+            <a href="package.html">TOUR PACKAGES</a>
+            <a href="contact.html">CONTACT US</a>
+        </nav>
+    </div>
+</header>
+
+
+
+<!-- Contact US  -->
+
+
+<!-- Hero Image Section -->
+<section class="hero-image">
+    <div class="hero-text">
+        <h1>Tour Packages</h1>
+    </div>
+</section>
+
+
+
+
+</div>
+      
+ <!-- FOOTER -->
+    
+
+    <footer>
+        <br/><br/>
+        <div class="footer-container">
+                <div class="col-3">
+                    <h1 class="logo"><span>Vision Tour and Travels Pvt. Ltd.</span></h1>
+                    <img class="image" src="images/logo.png" alt="logo">
+                </div>
+                <div class="col-3">
+                    <h5>Address</h5>
+                    <p>
+                        Near Mahabodhi Society of India,<br>
+                        Bodhgaya, Gaya, Bihar – 824231, India
+                    </p>
+                    <p><i class="fa fa-phone me-3"></i> +91-9955281537</p>
+                    <p><i class="fa fa-envelope me-3"></i> info@visionindiatour.com</p>
+                </div>
+                <div class="col-3">
+                    <h5>Quick Links</h5>
+                    <a href="about.html" class="btn btn-link">About Us</a>
+                    <a href="contact.html" class="btn btn-link">Contact Us</a>
+                    <a href="#" class="btn btn-link">Our Services</a>
+                    <!-- <a href="#" class="btn btn-link">Terms &amp; Conditions</a> -->
+                    <a href="destination.html" class="btn btn-link">Top Destinations</a>
+                    <a href="package.html" class="btn btn-link">Best Buddhist Packages in India</a>
+                </div>
+                <div class="col-3">
+                    <h5>Pay Safely With Us</h5>
+                    <p>The payment is encrypted and transmitted securely with an SSL protocol.</p>
+                    <div class="payment-icons">
+                        <img src="images/visa.png" alt="Visa">
+                        <img src="images/american_express.png" alt="American Express">
+                        <img src="images/master_card.png" alt="Mastercard">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            <br/><br/>
+            <div class="container-fluid">
+                <div class="col-6">
+                <p>© 2024 Vision India Tour - All Rights Reserved.</p>
+                </div>
+                <div class="col-7 d-flex align-items-center">
+                    <h5>Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <br/><br/>
+    </footer>
+    </div>
+    
+   
+
+   
+    
+
+
+    
+
+
+    
+
+
+<!-- javascript for ioicon link -->
+ <script src="index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+
+<!-- javascript for toggle menu -->
+
+
+   <script>
+     document.getElementById('menu-toggle').addEventListener('click', function() {
+     document.getElementById('navbar').style.display = 'flex';
+     });
+
+     document.getElementById('menu-close').addEventListener('click', function() {
+    document.getElementById('navbar').style.display = 'none';
+     });
+
+
+   </script>
+
+
+<!-- javascript for header fixing on scrolling -->
+
+<script>
+    window.addEventListener('scroll', function() {
+      const topBar = document.querySelector('.top-bar');
+      const headerContent = document.querySelector('.header-content');
+      const scrollPosition = window.scrollY;
+      
+      // Get the height of the top-bar
+      const topBarHeight = topBar.offsetHeight;
+      
+      // If scrolled more than the height of the top-bar, hide top-bar and fix header-content
+      if (scrollPosition > topBarHeight) {
+        topBar.style.transform = 'translateY(-100%)'; // Hide top-bar
+        headerContent.style.top = '0'; // Fix header-content at the top
+      } else {
+        topBar.style.transform = 'translateY(0)'; // Show top-bar
+        headerContent.style.top = topBarHeight + 'px'; // Adjust header-content position
+      }
+    });
+  </script>
+  
+  
+ 
+    
+  
+
+
+</body>
+</html>
