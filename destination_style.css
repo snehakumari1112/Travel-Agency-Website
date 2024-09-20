@@ -115,6 +115,13 @@ body {
     color: #333;
     border-radius: 5px;
   }
+
+  nav a.active {
+    background: #f8d800;
+    color: #333;
+    border-radius: 5px;
+  }
+  
   
   nav i {
     display: none;

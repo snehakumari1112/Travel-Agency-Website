@@ -246,7 +246,26 @@
   </script>
   
   
- 
+    <!-- js for nav active -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Get the current URL path
+          var currentPath = window.location.pathname.split('/').pop(); // Extract the filename from the path
+      
+          // Get all navigation links
+          var navLinks = document.querySelectorAll('nav a');
+      
+          // Loop through all navigation links
+          navLinks.forEach(function(link) {
+            // Extract the href attribute of each link and compare with the current path
+            if (link.getAttribute('href') === currentPath) {
+              // Add the 'active' class to the matching link
+              link.classList.add('active');
+            }
+          });
+        });
+      </script>
     
   
 

@@ -116,14 +116,21 @@ nav a:hover {
   border-radius: 5px;
 }
 
+
+nav a.active {
+  background: #f8d800;
+  color: #333;
+  border-radius: 5px;
+}
+
+
 nav i {
   display: none;
   font-size: 24px;
   color: #f8d800;
   cursor: pointer;
 }
-
-
+/* Slider Container */
 .slider {
   position: relative;
   width: 100%;
@@ -131,20 +138,25 @@ nav i {
   overflow: hidden;
 }
 
+/* Slides Container */
 .slides {
   display: flex;
   width: 400%;
   height: 100%;
-  animation: slide 20s infinite;
+  transition: transform 0.5s ease-in-out;
 }
 
+/* Individual Slide */
 .slide {
   width: 25%;
   height: 100%;
-  position: relative;
   background-size: cover;
   background-position: center;
   flex: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 #slide-1 { background-image: url('images/2.jpg'); }
@@ -152,45 +164,74 @@ nav i {
 #slide-3 { background-image: url('images/gaya.jpg'); }
 #slide-4 { background-image: url('images/kushinagar.jpg'); }
 
+/* Text Content */
 .content {
   position: absolute;
-  bottom: 20%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
   color: white;
-  text-align: center;
-  font-size: 1.5em;
-  opacity: 0;
-  animation: fadeIn 5s infinite;
+  text-align: left;
+  max-width: 40%;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 3rem;
   margin: 0;
   color: #f8d800;
 }
 
 p {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   margin: 10px 0 0;
 }
 
-@keyframes slide {
-  0%, 20% { margin-left: 0; }
-  25%, 45% { margin-left: -100%; }
-  50%, 70% { margin-left: -200%; }
-  75%, 95% { margin-left: -300%; }
-  100% { margin-left: 0; }
+/* Carousel Navigation Buttons */
+.carousel-buttons {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 2;
 }
 
-@keyframes fadeIn {
-  0%, 20% { opacity: 0; }
-  25%, 45% { opacity: 1; }
-  50%, 70% { opacity: 1; }
-  75%, 95% { opacity: 1; }
-  100% { opacity: 0; }
+button.prev, button.next {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #f8d800;
+  border: none;
+  padding: 15px 25px;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
 }
 
+button.prev:hover, button.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h2 {
+      font-size: 2rem;
+  }
+  p {
+      font-size: 1rem;
+  }
+  .content {
+      max-width: 70%;
+      padding: 10px;
+  }
+  button.prev, button.next {
+      padding: 10px 20px;
+      font-size: 1.5rem;
+  }
+}
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -287,7 +328,7 @@ p {
     border-radius: 5px;
   }
   
-  .slider {
+  /* .slider {
     height: 60vh;
   }
   
@@ -302,7 +343,7 @@ p {
   
   p {
     font-size: 0.8em;
-  }
+  } */
 }
 
 @media (min-width: 769px) {

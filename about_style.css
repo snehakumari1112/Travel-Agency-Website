@@ -115,6 +115,13 @@ body {
     color: #333;
     border-radius: 5px;
   }
+
+  nav a.active {
+    background: #f8d800;
+    color: #333;
+    border-radius: 5px;
+  }
+  
   
   nav i {
     display: none;
@@ -231,7 +238,7 @@ body {
     position: relative;
     width: 100%;
     height: 80vh;
-    background: url('images/2.jpg') no-repeat center center;
+    background: url('images/about.jpg') no-repeat center center;
     background-size: cover;
 }
 

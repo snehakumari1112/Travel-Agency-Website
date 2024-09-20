@@ -60,7 +60,7 @@
  <!-- Long Image with Overlay Text -->
  <section class="hero-image">
     <div class="hero-text">
-        <h1>About Us</h1>
+        <!-- <h1>About Us</h1> -->
     </div>
 </section>
 
@@ -84,7 +84,7 @@
         </p>
     </div>
     <div class="content-right">
-        <img src="images/bodhgaya.jpg" alt="Mission Image">
+        <img src="images/mission.jpg" alt="Mission Image">
     </div>
 </section>
 
@@ -95,7 +95,7 @@
         </p>
     </div>
     <div class="content-right">
-        <img src="images/gaya.jpg" alt="Values Image">
+        <img src="images/values.jpg" alt="Values Image">
     </div>
 </section>
 
@@ -106,7 +106,7 @@
         </p>
     </div>
     <div class="content-right">
-        <img src="images/bodhgaya.jpg" alt="Mission Image">
+        <img src="images/solution.jpg" alt="Mission Image">
     </div>
 </section>
 
@@ -328,6 +328,29 @@
         topBar.style.transform = 'translateY(0)'; // Show top-bar
         headerContent.style.top = topBarHeight + 'px'; // Adjust header-content position
       }
+    });
+  </script>
+  
+
+
+   <!-- js for nav active -->
+
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the current URL path
+      var currentPath = window.location.pathname.split('/').pop(); // Extract the filename from the path
+  
+      // Get all navigation links
+      var navLinks = document.querySelectorAll('nav a');
+  
+      // Loop through all navigation links
+      navLinks.forEach(function(link) {
+        // Extract the href attribute of each link and compare with the current path
+        if (link.getAttribute('href') === currentPath) {
+          // Add the 'active' class to the matching link
+          link.classList.add('active');
+        }
+      });
     });
   </script>
   

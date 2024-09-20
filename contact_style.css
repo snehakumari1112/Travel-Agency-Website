@@ -115,6 +115,13 @@ body {
     color: #333;
     border-radius: 5px;
   }
+
+  nav a.active {
+    background: #f8d800;
+    color: #333;
+    border-radius: 5px;
+  }
+  
   
   nav i {
     display: none;
@@ -230,7 +237,7 @@ body {
     position: relative;
     width: 100%;
     height: 80vh;
-    background: url('images/2.jpg') no-repeat center center;
+    background: url('images/about.jpg') no-repeat center center;
     background-size: cover;
 }
 
@@ -240,7 +247,7 @@ body {
     left: 12%;
     transform: translate(-50%, -50%);
     text-align: left;
-    color: #f8d800; /* Contrast color for text */
+    color: #ff6a00; /* Contrast color for text */
     padding: 20px;
     border-radius: 10px;
 }
@@ -389,6 +396,43 @@ body {
     background-color: #e0c700;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .contact-details,
+  .contact-form {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+      padding: 20px;
+  }
+
+  .contact-details,
+  .contact-form {
+      padding: 20px;
+  }
+
+  .contact-form .form-group input,
+  .contact-form .form-group textarea {
+      font-size: 0.9rem;
+      padding: 8px;
+  }
+
+  .contact-form button {
+      font-size: 0.9rem;
+      padding: 8px 15px;
+  }
+}
+
+
 
 /* Google Map Section */
 .map-section {
@@ -408,6 +452,28 @@ body {
     width: 100%; /* Make the iframe itself take up 100% width */
     height: 100%; /* Ensure the iframe fills the container's height */
     border: none; /* Remove the default iframe border */
+}
+
+
+/* Responsive Design for Google Map Section */
+@media (max-width: 768px) {
+  .map-section {
+      padding: 30px;
+  }
+
+  .map-container {
+      height: 350px; /* Reduce height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .map-section {
+      padding: 20px;
+  }
+
+  .map-container {
+      height: 250px; /* Further reduce height for very small screens */
+  }
 }
 
   
