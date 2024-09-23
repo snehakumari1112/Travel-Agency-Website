@@ -264,8 +264,9 @@ body {
 @media (max-width: 768px) {
   .hero-image {
       height: 60vh; /* Adjust height for smaller screens */
-      background-position: center top; /* Adjust background position */
-  }
+      background: url('images/about_smaller.jpg') no-repeat center center; /* Mobile image */
+      background-size: cover;
+    }
 
   .hero-text {
       top: 70%; /* Adjust position for smaller screens */
@@ -284,7 +285,9 @@ body {
 /* For screens 480px and smaller */
 @media (max-width: 480px) {
   .hero-image {
-      height: 50vh; /* Further adjust height for very small screens */
+    background: url('images/about_smaller.jpg') no-repeat center center; /* Mobile image */
+    background-size: cover;
+      height: 60vh; /* Further adjust height for very small screens */
   }
 
   .hero-text {
@@ -602,6 +605,56 @@ body {
     color: #f8d800;
 }
 
+/* Responsive styles for screens 768px and smaller */
+@media (max-width: 768px) {
+  .cta-section {
+      padding: 30px 15px; /* Reduce padding for smaller screens */
+      margin: 30px auto;  /* Adjust margins */
+      max-width: 100%;    /* Allow full width on smaller screens */
+  }
+
+  .cta-heading {
+      font-size: 1.6rem;  /* Reduce font size */
+  }
+
+  .cta-text {
+      font-size: 1rem;    /* Smaller text for better readability */
+      margin-bottom: 20px; /* Adjust margin for better spacing */
+  }
+
+  .cta-buttons {
+      flex-direction: column; /* Stack buttons vertically on smaller screens */
+      gap: 15px;              /* Adjust gap between buttons */
+  }
+
+  .cta-primary, .cta-secondary {
+      font-size: 1rem;    /* Reduce button text size */
+      padding: 12px 20px; /* Adjust padding */
+  }
+}
+
+/* Responsive styles for screens 480px and smaller */
+@media (max-width: 480px) {
+  .cta-section {
+      padding: 20px 10px; /* Further reduce padding */
+  }
+
+  .cta-heading {
+      font-size: 1.4rem; /* Smaller heading for mobile */
+  }
+
+  .cta-text {
+      font-size: 0.9rem; /* Adjust text size for mobile */
+      margin-bottom: 15px; /* Reduce margin */
+  }
+
+  .cta-primary, .cta-secondary {
+      font-size: 0.9rem;  /* Further reduce button font size */
+      padding: 10px 15px; /* Adjust padding for mobile */
+  }
+}
+
+
   
 
   /* google map */
@@ -623,7 +676,30 @@ iframe{
   filter: invert(100%);
   padding-top: 10px;
 }
-  
+
+/* Responsive Design for Google Map Section */
+@media (max-width: 768px) {
+  .map {
+      padding: 30px;
+  }
+  .map h1 {
+    font-size: 2rem;
+  }
+
+  iframe {
+      height: 350px; /* Reduce height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .map {
+      padding: 20px;
+  }
+
+  iframe {
+      height: 250px; /* Further reduce height for very small screens */
+  }
+}
 
 
 /* PHOTOS FROM TRIP */
@@ -677,6 +753,8 @@ iframe{
       font-size: 2rem;
     }
   }
+
+  
   
   
   
