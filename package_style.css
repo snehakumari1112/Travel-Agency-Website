@@ -1,236 +1,357 @@
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: hidden;
-    background-color: #333;
-    height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  background-color: #333;
+  height: 100%;
+}
+
+/* Ensure wrapper takes full height */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* The main content area */
+.content-area {
+  flex: 1;
+  padding-top: 120px; /* Adjusted to accommodate both top-bar and header-content */
+}
+
+/* Base styles for the header */
+header {
+  background: #333;
+  color: white;
+  position: fixed; /* Fixed to the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it's above other content */
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles for top-bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #444;
+  padding: 15px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1001;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-info span {
+  margin-right: 15px;
+  color: #f8d800;
+}
+
+#menu-toggle {
+  display: none; /* Initially hidden */
+  font-size: 28px;
+  color: #f8d800;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 80%;
+  transform: translateY(-50%);
+}
+
+/* Media query to show the menu on smaller screens */
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: block; /* Show menu on smaller screens */
   }
   
-  /* Ensure wrapper takes full height */
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  .contact-info {
+    flex-basis: 100%;
   }
-  
-  /* The main content area */
-  .content-area {
-    flex: 1;
-    padding-top: 60px; /* Space for the top-bar */
+}
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-left: 10px;
+}
+
+.auth-links a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #f8d800;
+  white-space: nowrap;
+}
+
+/* Styles for header-content */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  padding: 10px 20px;
+  border-bottom: 3px solid #f8d800;
+  z-index: 1002; /* Above top-bar */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.website-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f8d800;
+}
+
+nav {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #f8d800;
+  font-size: 16px;
+  padding: 10px 15px;
+}
+
+nav a:hover {
+  background: #f8d800;
+  color: #333;
+  border-radius: 5px;
+}
+
+nav a.active {
+  background: #f8d800;
+  color: #333;
+  border-radius: 5px;
+}
+
+nav i {
+  display: none;
+  font-size: 24px;
+  color: #f8d800;
+  cursor: pointer;
+}
+
+/* Slider Container */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+/* Slides Container */
+.slides {
+  display: flex;
+  width: 400%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Individual Slide */
+.slide {
+  width: 25%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  flex: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#slide-1 { background-image: url('images/bodhgaya1.jpg'); }
+#slide-2 { background-image: url('images/3.jpeg'); }
+#slide-3 { background-image: url('images/gaya.jpg'); }
+#slide-4 { background-image: url('images/kushinagar.jpg'); }
+
+/* Text Content */
+.content {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  text-align: left;
+  max-width: 40%;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+h2 {
+  font-size: 3rem;
+  margin: 0;
+  color: #f8d800;
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 10px 0 0;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-buttons {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+button.prev, button.next {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #f8d800;
+  border: none;
+  padding: 15px 25px;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+button.prev:hover, button.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
   }
-  
-  /* Base styles for the header */
-  header {
-    background: #333;
-    color: white;
-    border-bottom: 3px solid #f8d800;
-    position: relative; /* Ensure proper stacking */
+  p {
+    font-size: 1rem;
   }
-  
-  /* Styles for top-bar */
+  .content {
+    max-width: 70%;
+    padding: 10px;
+  }
+  button.prev, button.next {
+    padding: 10px 20px;
+    font-size: 1.5rem;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
   .top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-    background: #222;
-    padding: 5px 20px;
-    position: fixed; /* Fixed to the top */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100; /* Above header-content */
-    transition: transform 0.3s; /* Smooth transition for hiding */
-    box-sizing: border-box; /* Include padding in width calculation */
+    flex-direction: row;
+    padding: 10px 10px;
+    margin-top: -10px; /* Adjust this value if needed */
+    padding: 0; /* Ensure no padding is adding space */
   }
-  
-  .contact-info span {
-    margin-right: 15px;
+
+  .contact-info {
+    margin-right: auto;
+    font-size: 14px; 
+    padding: 5px; /* adjust as needed */
+    margin: 0; /* to remove any extra space */
   }
-  
+
   .auth-links {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    margin-left: 10px;
+    margin-left: auto;
   }
-  
+
+  .contact-info span {
+    display: block;
+    margin: 5px 0;
+  }
+
   .auth-links a {
     margin-left: 10px;
-    text-decoration: none;
-    color: #f8d800;
-    white-space: nowrap; /* Prevent text from wrapping */
+    font-size: 14px;
   }
-  
-  
-  /* Styles for header-content */
+
   .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    /* border-bottom: none; */
+    margin-bottom: 0 !important; /* Use !important to override other styles */
+    padding-bottom: 0 !important; /* Ensure no padding is adding space */
+    border-bottom: 3px solid #f8d800;
+  }
+
+  .logo {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .logo img {
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  .website-name {
+    font-size: 18px;
+  }
+
+  #navbar {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: #333;
-    padding: 10px 20px;
-    border-bottom: 3px solid #f8d800;
-    z-index: 50; /* Below top-bar initially  */
-    transition: top 0.3s;
-  } 
-  
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo img {
-    height: 50px;
-    margin-right: 10px;
-  }
-  
-  .website-name {
-    font-size: 24px;
-    font-weight: bold;
-    color: #f8d800;
-  }
-  
-  nav {
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #f8d800;
-    font-size: 16px;
-    padding: 10px 15px;
-  }
-  
-  nav a:hover {
     background: #f8d800;
-    color: #333;
-    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
   }
 
-  nav a.active {
-    background: #f8d800;
+  #menu-close {
+    display: block;
+    font-size: 28px;
     color: #333;
-    border-radius: 5px;
-  }
-  
-  
-  nav i {
-    display: none;
-    font-size: 24px;
-    color: #f8d800;
     cursor: pointer;
+    margin-bottom: 10px;
   }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .top-bar {
-      flex-direction: row; /* Stack contact-info and auth-links horizontally */
-      padding: 10px 10px; /* Adjust padding */
-    }
-  
-    .contact-info {
-      margin-right: auto; /* Push auth-links to the right */
-    }
-  
-    .auth-links {
-      margin-left: auto; /* Keep auth-links on the right */
-    }
-  
-    .contact-info span {
-      display: block;
-      margin: 5px 0; /* Space between contact-info items */
-    }
-  
-    .auth-links a {
-      margin-left: 10px;
-      font-size: 14px; /* Smaller font size for smaller screens */
-    }
-  
-    .header-content {
-      flex-direction: column; /* Stack logo and nav vertically */
-      align-items: flex-start; /* Align items to the start */
-      padding: 10px; /* Adjust padding for smaller screens */
-      border-bottom: none; /* Remove bottom border for a cleaner look */
-    }
-  
-    .logo {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px; /* Space between logo and nav */
-    }
-  
-    .logo img {
-      height: 40px; /* Adjust logo size for smaller screens */
-      margin-right: 10px;
-    }
-  
-    .website-name {
-      font-size: 18px; /* Smaller font size for the website name */
-    }
-  
-    #menu-toggle {
-      display: block;
-      font-size: 28px; /* Increase icon size for better visibility */
-      color: #f8d800;
-      cursor: pointer;
-      margin-left: auto; /* Align to the end */
-      z-index: 1001; /* Ensure it is above other content */
-    }
-  
-    #navbar {
-      display: none; /* Initially hide navbar */
-      flex-direction: column;
-      align-items: flex-start;
-      position: fixed; /* Fixed positioning for overlay effect */
-      top: 0; /* Align to the top */
-      left: 0; /* Stretch across the screen */
-      width: 100%; /* Full width of the screen */
-      background: #f8d800; /* Yellow background */
-      padding: 15px;
-      border-radius: 0; /* Remove border radius to fit edge-to-edge */
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      z-index: 1000; /* Ensure navbar is above other content */
-      overflow-y: auto; /* Allow scrolling if content overflows */
-      transition: transform 0.3s ease; /* Smooth transition for visibility */
-    }
-  
-    #menu-close {
-      display: block;
-      font-size: 28px; /* Increase icon size for better visibility */
-      color: #333; /* Adjust color if needed */
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
-  
-    #navbar a {
-      color: #333; /* Adjust color as needed */
-      padding: 10px 15px;
-      text-decoration: none;
-      display: block;
-      width: 100%; /* Ensure links span the width of the navbar */
-    }
-  
-    #navbar a:hover {
-      background: #333;
-      color: #f8d800; /* Adjust color if needed */
-      border-radius: 5px;
-    }
+  #navbar a {
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
   }
-  
-  @media (min-width: 769px) {
-    #menu-toggle, #menu-close {
-      display: none;
-    }
+
+  #navbar a:hover {
+    background: #333;
+    color: #f8d800;
+    border-radius: 5px;
   }
+}
+
+@media (min-width: 769px) {
+  #menu-toggle, #menu-close {
+    display: none;
+  }
+}
+
 
 /* Hero Image Section */
 .hero-image {

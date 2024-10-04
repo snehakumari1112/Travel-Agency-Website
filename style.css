@@ -16,15 +16,20 @@ body {
 /* The main content area */
 .content-area {
   flex: 1;
-  padding-top: 60px; /* Space for the top-bar */
+  padding-top: 120px; /* Adjusted to accommodate both top-bar and header-content */
 }
 
 /* Base styles for the header */
 header {
   background: #333;
   color: white;
-  border-bottom: 3px solid #f8d800;
-  position: relative; /* Ensure proper stacking */
+  position: fixed; /* Fixed to the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it's above other content */
+  margin: 0;
+  padding: 0;
 }
 
 /* Styles for top-bar */
@@ -32,26 +37,47 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
-  background: #222;
-  padding: 5px 20px;
-  position: fixed; /* Fixed to the top */
-  top: 0;
-  left: 0;
+  background: #444;
+  padding: 15px 20px;
   width: 100%;
-  z-index: 100; /* Above header-content */
-  transition: transform 0.3s; /* Smooth transition for hiding */
-  box-sizing: border-box; /* Include padding in width calculation */
+  box-sizing: border-box;
+  z-index: 1001;
+  position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .contact-info span {
   margin-right: 15px;
+  color: #f8d800;
+}
+
+#menu-toggle {
+  display: none; /* Initially hidden */
+  font-size: 28px;
+  color: #f8d800;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 80%;
+  transform: translateY(-50%);
+}
+
+/* Media query to show the menu on smaller screens */
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: block; /* Show menu on smaller screens */
+  }
+  
+  .contact-info {
+    flex-basis: 100%;
+  }
 }
 
 .auth-links {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap; /* Prevent wrapping */
+  flex-wrap: nowrap;
   margin-left: 10px;
 }
 
@@ -59,25 +85,19 @@ header {
   margin-left: 10px;
   text-decoration: none;
   color: #f8d800;
-  white-space: nowrap; /* Prevent text from wrapping */
+  white-space: nowrap;
 }
-
 
 /* Styles for header-content */
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
   background: #333;
   padding: 10px 20px;
   border-bottom: 3px solid #f8d800;
-  z-index: 50; /* Below top-bar initially  */
-  transition: top 0.3s;
-} 
+  z-index: 1002; /* Above top-bar */
+}
 
 .logo {
   display: flex;
@@ -116,13 +136,11 @@ nav a:hover {
   border-radius: 5px;
 }
 
-
 nav a.active {
   background: #f8d800;
   color: #333;
   border-radius: 5px;
 }
-
 
 nav i {
   display: none;
@@ -130,6 +148,7 @@ nav i {
   color: #f8d800;
   cursor: pointer;
 }
+
 /* Slider Container */
 .slider {
   position: relative;
@@ -218,132 +237,113 @@ button.prev:hover, button.next:hover {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   h2 {
-      font-size: 2rem;
+    font-size: 2rem;
   }
   p {
-      font-size: 1rem;
+    font-size: 1rem;
   }
   .content {
-      max-width: 70%;
-      padding: 10px;
+    max-width: 70%;
+    padding: 10px;
   }
   button.prev, button.next {
-      padding: 10px 20px;
-      font-size: 1.5rem;
+    padding: 10px 20px;
+    font-size: 1.5rem;
   }
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
   .top-bar {
-    flex-direction: row; /* Stack contact-info and auth-links horizontally */
-    padding: 10px 10px; /* Adjust padding */
+    flex-direction: row;
+    padding: 10px 10px;
+    margin-top: -10px; /* Adjust this value if needed */
+    padding: 0; /* Ensure no padding is adding space */
   }
 
   .contact-info {
-    margin-right: auto; /* Push auth-links to the right */
+    margin-right: auto;
+    font-size: 14px; 
+    padding: 5px; /* adjust as needed */
+    margin: 0; /* to remove any extra space */
   }
 
   .auth-links {
-    margin-left: auto; /* Keep auth-links on the right */
+    margin-left: auto;
   }
 
   .contact-info span {
     display: block;
-    margin: 5px 0; /* Space between contact-info items */
+    margin: 5px 0;
   }
 
   .auth-links a {
     margin-left: 10px;
-    font-size: 14px; /* Smaller font size for smaller screens */
+    font-size: 14px;
   }
 
   .header-content {
-    flex-direction: column; /* Stack logo and nav vertically */
-    align-items: flex-start; /* Align items to the start */
-    padding: 10px; /* Adjust padding for smaller screens */
-    border-bottom: none; /* Remove bottom border for a cleaner look */
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    /* border-bottom: none; */
+    margin-bottom: 0 !important; /* Use !important to override other styles */
+    padding-bottom: 0 !important; /* Ensure no padding is adding space */
+    border-bottom: 3px solid #f8d800;
   }
 
   .logo {
     display: flex;
     align-items: center;
-    margin-bottom: 10px; /* Space between logo and nav */
+    margin-bottom: 10px;
   }
 
   .logo img {
-    height: 40px; /* Adjust logo size for smaller screens */
+    height: 40px;
     margin-right: 10px;
   }
 
   .website-name {
-    font-size: 18px; /* Smaller font size for the website name */
-  }
-
-  #menu-toggle {
-    display: block;
-    font-size: 28px; /* Increase icon size for better visibility */
-    color: #f8d800;
-    cursor: pointer;
-    margin-left: auto; /* Align to the end */
-    z-index: 1001; /* Ensure it is above other content */
+    font-size: 18px;
   }
 
   #navbar {
-    display: none; /* Initially hide navbar */
+    display: none;
     flex-direction: column;
     align-items: flex-start;
-    position: fixed; /* Fixed positioning for overlay effect */
-    top: 0; /* Align to the top */
-    left: 0; /* Stretch across the screen */
-    width: 100%; /* Full width of the screen */
-    background: #f8d800; /* Yellow background */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #f8d800;
     padding: 15px;
-    border-radius: 0; /* Remove border radius to fit edge-to-edge */
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    z-index: 1000; /* Ensure navbar is above other content */
-    overflow-y: auto; /* Allow scrolling if content overflows */
-    transition: transform 0.3s ease; /* Smooth transition for visibility */
+    z-index: 1000;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
   }
 
   #menu-close {
     display: block;
-    font-size: 28px; /* Increase icon size for better visibility */
-    color: #333; /* Adjust color if needed */
+    font-size: 28px;
+    color: #333;
     cursor: pointer;
     margin-bottom: 10px;
   }
 
   #navbar a {
-    color: #333; /* Adjust color as needed */
+    color: #333;
     padding: 10px 15px;
     text-decoration: none;
     display: block;
-    width: 100%; /* Ensure links span the width of the navbar */
+    width: 100%;
   }
 
   #navbar a:hover {
     background: #333;
-    color: #f8d800; /* Adjust color if needed */
+    color: #f8d800;
     border-radius: 5px;
   }
-  
-  /* .slider {
-    height: 60vh;
-  }
-  
-  
-  .content {
-    font-size: 1em;
-  }
-  
-  h2 {
-    font-size: 1.5em;
-  }
-  
-  p {
-    font-size: 0.8em;
-  } */
 }
 
 @media (min-width: 769px) {
