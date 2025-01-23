@@ -846,12 +846,26 @@ button.prev:hover, button.next:hover {
   font-size: 2.5rem;
   color: #f8d800;
 }
-iframe{
-  width: 80%;
-  height: 500px;
+
+.map iframe {
+  width: 100%; /* Set width to 100% to make it responsive */
+  height: 500px; /* Fixed height; can adjust based on preference */
+  border: 0; /* Remove border */
   filter: invert(100%);
   padding-top: 30px;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .map iframe {
+    height: 300px; /* Reduce height on smaller screens */
+  }
+}
+
+
+
+
+
 
 
 

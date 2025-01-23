@@ -421,6 +421,167 @@ button.prev:hover, button.next:hover {
 
 
 
+
+/* PACKAGES */
+
+.tour-packages {
+  text-align: center; /* Center the content */
+  padding: 40px 20px; /* Add some padding */
+  background-color: #444; 
+  color: #FFD700; /* Bright yellow text color */
+  /* background: linear-gradient(to bottom, #f8f9fa, #e0e7ff, #c3dafe); */
+
+}
+
+.tour-packages-heading {
+  font-size: 2.5rem; /* Larger font size for the heading */
+  margin-bottom: 30px; /* Space below the heading */
+}
+
+.packages-buttons {
+  display: flex; /* Use flexbox for button layout */
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center; /* Center buttons */
+  gap: 15px; /* Space between buttons */
+}
+
+/* Button Styles */
+.package-button {
+  background-color: #FFD700; /* Button background color */
+  color: #333; /* Button text color */
+  padding: 15px 25px; /* Button padding */
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  font-size: 1.2rem; /* Font size for buttons */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Hover Effect */
+.package-button:hover {
+  background-color: #fd5304; /* Darker shade on hover */
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .packages-buttons {
+      flex-direction: row; /* Change to row on larger screens */
+      justify-content: center; /* Center buttons */
+  }
+
+  .package-button {
+      margin: 0 10px; /* Add horizontal margin between buttons */
+      flex: 1; /* Allow buttons to take equal space */
+      max-width: 250px; /* Max width for buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  .tour-packages-heading {
+      font-size: 2rem; /* Smaller font size for mobile */
+  }
+
+  .package-button {
+      font-size: 1rem; /* Smaller font size for buttons */
+      padding: 10px 20px; /* Smaller padding for mobile */
+  }
+}
+
+
+/* Packages section styles */
+.packages-section {
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #333; /* Background color for sections */
+  color: #fff; /* Text color for sections */
+  border-radius: 8px;
+}
+
+.packages-section h3 {
+  display: flex;
+  align-items: center; /* Aligns the icon and text vertically */
+  justify-content: center; /* Centers the title */
+  font-size: 24px; /* Adjust as necessary */
+  color: yellow; /* Change to match your design */
+}
+
+.packages-section h3 i {
+  margin: 0 10px; /* Adds space between the icon and text */
+  color: #fd5304; /* Change color to match your theme */
+  font-size: 20px; /* Adjust icon size if needed */
+}
+
+/* Cards container */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem; /* Space between cards */
+}
+
+/* Individual package card styles */
+.package-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: calc(30% - 1rem); /* Adjust width of cards */
+  display: flex; /* Use flexbox for image and info alignment */
+  text-decoration: none; /* Remove underline from link */
+  transition: transform 0.3s, box-shadow 0.3s; /* Animation for hover effect */
+}
+
+.package-card:hover {
+  transform: translateY(-5px); /* Raise card on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+.package-image {
+  width: 60%; /* Image takes 60% of the card width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.package-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center text vertically */
+  flex: 1; /* Take remaining space */
+  background-color: #f8f8f8; /* Light background for better contrast */
+}
+
+.package-name {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333; /* Dark color for better visibility */
+}
+
+.package-duration {
+  font-size: 1rem;
+  margin: 0;
+  color: #555; /* Slightly muted color for duration */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .package-card {
+      width: 100%; /* Full width for mobile devices */
+  }
+
+  .package-button {
+      padding: 0.5rem 1rem; /* Adjust button padding */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .package-card {
+      width: calc(45% - 1rem); /* Adjust width for tablets */
+  }
+}
+
+
+
+
+
   
 /* Footer */
    
